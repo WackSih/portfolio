@@ -1,0 +1,485 @@
+/* On supprime les marges par défaut et on met une police propre */
+body {
+    margin: 0;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background-color: #f4f4f9; /* Un petit fond gris très clair */
+}
+
+/* La barre qui contient le menu */
+/* La barre qui contient le menu */
+header {
+    background-color: #2c3e50; 
+    padding: 20px 0;
+    /* Nouvelles lignes pour bloquer le menu en haut */
+    position: sticky;
+    top: 0;
+    z-index: 9999; /* S'assure que le menu passe au-dessus de tout le reste */
+    box-shadow: 0 2px 10px rgba(0,0,0,0.3); /* Ajoute une ombre élégante sous la barre */
+}
+
+/* On aligne les éléments du menu */
+header nav ul {
+    list-style-type: none;
+    display: flex;
+    justify-content: center; /* Centre le menu */
+    gap: 40px; /* Espace bien les liens */
+    margin: 0;
+    padding: 0;
+}
+
+/* Le design des textes cliquables */
+header nav ul li a {
+    color: white; /* Texte en blanc */
+    text-decoration: none; /* Enlève le trait en dessous */
+    font-weight: bold;
+    font-size: 18px;
+}
+
+/* Style global des sections pour qu'elles prennent bien toute la hauteur de l'écran */
+section {
+    min-height: 100vh;
+    padding: 80px 20px 20px 20px; /* Un peu d'espace en haut pour le menu fixe */
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+/* Style de la carte de projet */
+.projet-card {
+    background-color: white;
+    padding: 30px;
+    border-radius: 10px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+    max-width: 1000px;
+    width: 100%;
+    text-align: center;
+    position: relative; /* <-- INDISPENSABLE ICI */
+}
+
+/* La zone qui accueillera le jeu */
+.emulator-placeholder {
+    background-color: black;
+    /* On impose les proportions exactes de ta fenêtre SDL2 */
+    width: 100%;
+    max-width: 912px;
+    aspect-ratio: 912 / 497;
+    margin: 20px auto 0 auto;
+    
+    border-radius: 8px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    overflow: hidden;
+    box-shadow: 0 8px 25px rgba(0,0,0,0.4);
+}
+
+/* L'écran virtuel du jeu généré par Emscripten */
+#canvas {
+    width: 100%;
+    height: 100%;
+    display: block;
+    image-rendering: pixelated; /* Garde les textures nettes sans effet de flou */
+}
+
+/* Style du bouton Jouer */
+#btn-jouer {
+    position: absolute;
+    z-index: 10;
+    padding: 15px 30px;
+    font-size: 1.2rem;
+    font-weight: bold;
+    background-color: #f39c12; /* Orange Seigneur des Anneaux */
+    color: white;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    box-shadow: 0 4px 6px rgba(0,0,0,0.3);
+    transition: transform 0.2s, background-color 0.2s;
+}
+
+#btn-jouer:hover {
+    background-color: #e67e22;
+    transform: scale(1.05);
+}
+
+/* Le logo se place par rapport au rectangle blanc */
+.github-link {
+    position: absolute; /* <-- Remplace "fixed" par "absolute" */
+    top: 20px;
+    right: 25px;
+    color: #2c3e50;
+    transition: transform 0.2s ease, color 0.2s ease;
+}
+
+.github-link:hover {
+    transform: scale(1.15);
+    color: #f39c12;
+}
+
+/* Style de la croix de fermeture */
+#btn-fermer {
+    position: absolute;
+    top: 15px;
+    right: 15px;
+    z-index: 20;
+    padding: 8px 15px;
+    font-size: 1rem;
+    font-weight: bold;
+    background-color: #e74c3c; /* Rouge pour le bouton quitter */
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    box-shadow: 0 4px 6px rgba(0,0,0,0.3);
+    transition: transform 0.2s, background-color 0.2s;
+}
+
+#btn-fermer:hover {
+    background-color: #c0392b;
+    transform: scale(1.1);
+}
+
+/* Conteneur principal qui coupe l'écran en deux colonnes */
+.apropos-container {
+    display: flex;
+    gap: 40px;
+    max-width: 1100px;
+    width: 100%;
+    margin-top: 30px;
+    flex-wrap: wrap; /* Passe sur une seule colonne sur petit écran */
+}
+
+/* Les cartes blanches */
+.cv-section {
+    flex: 1;
+    background-color: white;
+    padding: 30px;
+    border-radius: 10px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+    text-align: left; /* On aligne à gauche pour le confort de lecture */
+    min-width: 320px;
+}
+
+.cv-section h3 {
+    color: #38526d;
+    border-bottom: 2px solid #f39c12; /* Ligne orange sous le titre */
+    padding-bottom: 10px;
+    margin-top: 0;
+}
+
+/* Le design de la ligne verticale (Timeline) */
+.timeline {
+    border-left: 3px solid #e0e0e0;
+    padding-left: 20px;
+    margin-top: 25px;
+}
+
+.timeline-item {
+    margin-bottom: 30px;
+    position: relative;
+}
+
+/* Le petit point orange sur la ligne */
+.timeline-item::before {
+    content: "";
+    position: absolute;
+    left: -28.5px; /* Aligné pile sur la bordure gauche */
+    top: 2px;
+    width: 10px;
+    height: 10px;
+    background-color: #f39c12;
+    border-radius: 50%;
+    border: 2px solid white;
+}
+
+.timeline-date {
+    font-size: 0.9rem;
+    font-weight: bold;
+    color: #f39c12;
+    margin-bottom: 5px;
+}
+
+.timeline-content h4 {
+    margin: 0 0 5px 0;
+    color: #333;
+    font-size: 1.1rem;
+}
+
+.timeline-content p {
+    margin: 0;
+    color: #666;
+    font-size: 0.95rem;
+    line-height: 1.5;
+}
+
+/* --- SECTION ACCUEIL (HERO) --- */
+#accueil {
+    /* Un léger dégradé gris/bleuté pour remplacer le fond uni */
+    background: linear-gradient(135deg, #f4f4f9 0%, #e0e6ed 100%);
+    text-align: center;
+    padding: 0 20px;
+}
+
+.hero-content {
+    max-width: 800px;
+}
+
+/* Le grand titre avec ton nom */
+.hero-content h1 {
+    font-size: 3.5rem;
+    color: #2c3e50; /* Le bleu nuit de ton menu */
+    margin-bottom: 10px;
+    margin-top: 0;
+}
+
+/* Le mot mis en valeur en orange */
+.hero-content .highlight {
+    color: #f39c12;
+}
+
+/* Le sous-titre */
+.hero-content h2 {
+    font-size: 2rem;
+    color: #555;
+    font-weight: 300;
+    margin-bottom: 20px;
+    margin-top: 0;
+}
+
+/* Le petit paragraphe de présentation */
+.hero-content p {
+    font-size: 1.2rem;
+    color: #666;
+    line-height: 1.6;
+    margin-bottom: 40px;
+}
+
+/* La zone qui contient les deux boutons */
+.hero-buttons {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    flex-wrap: wrap;
+}
+
+/* Style commun aux boutons de l'accueil */
+.btn-primary, .btn-secondary {
+    padding: 12px 30px;
+    font-size: 1.1rem;
+    font-weight: bold;
+    text-decoration: none;
+    border-radius: 8px;
+    transition: transform 0.2s, background-color 0.2s, box-shadow 0.2s;
+}
+
+/* Le bouton principal (Orange) */
+.btn-primary {
+    background-color: #f39c12;
+    color: white;
+    box-shadow: 0 4px 10px rgba(243, 156, 18, 0.3);
+}
+
+.btn-primary:hover {
+    background-color: #e67e22;
+    transform: translateY(-3px); /* Fait "sauter" le bouton au survol */
+    box-shadow: 0 6px 15px rgba(243, 156, 18, 0.4);
+}
+
+/* Le bouton secondaire (Transparent avec contour bleu) */
+.btn-secondary {
+    background-color: transparent;
+    color: #2c3e50;
+    border: 2px solid #2c3e50;
+}
+
+.btn-secondary:hover {
+    background-color: #2c3e50;
+    color: white;
+    transform: translateY(-3px);
+}
+
+/* --- SECTION CONTACT --- */
+#contact {
+    background-color: #2c3e50; /* Reprend le bleu de ton menu pour bien fermer la page */
+    color: white;
+}
+
+#contact h2 {
+    color: white;
+}
+
+.contact-container {
+    max-width: 900px;
+    width: 100%;
+    text-align: center;
+}
+
+.contact-intro {
+    font-size: 1.1rem;
+    margin-bottom: 40px;
+    color: #cbd5e1;
+}
+
+/* Grille pour aligner les 4 cartes */
+.contact-grid {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    flex-wrap: wrap;
+}
+
+/* Le design des cartes de contact */
+.contact-card {
+    background-color: rgba(255, 255, 255, 0.1);
+    padding: 25px 20px;
+    border-radius: 10px;
+    width: 180px;
+    text-decoration: none;
+    color: white;
+    transition: transform 0.2s, background-color 0.2s;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+/* Effet de survol pour les liens */
+.contact-card:not(.static-card):hover {
+    transform: translateY(-5px);
+    background-color: rgba(255, 255, 255, 0.2);
+}
+
+.contact-icon {
+    font-size: 2.5rem;
+    margin-bottom: 15px;
+}
+
+.contact-card h3 {
+    margin: 0 0 5px 0;
+    font-size: 1.2rem;
+    color: #f39c12; /* Touche d'orange */
+}
+
+.contact-card p {
+    margin: 0;
+    font-size: 0.9rem;
+    color: #cbd5e1;
+}
+
+/* La carte localisation n'a pas besoin d'effet de survol */
+.static-card {
+    cursor: default;
+}
+
+/* =========================================
+   7. FOOTER
+   ========================================= */
+footer {
+    background-color: #1a252f; /* Un bleu nuit encore plus foncé que la section Contact */
+    color: #cbd5e1;
+    padding: 20px 0;
+}
+
+.footer-content {
+    display: flex;
+    justify-content: space-between; /* Écarte le texte à gauche et la flèche à droite */
+    align-items: center;
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+.footer-content p {
+    margin: 0;
+    font-size: 0.9rem;
+}
+
+/* Style de la flèche de retour en haut */
+.back-to-top {
+    color: #cbd5e1;
+    background-color: rgba(255, 255, 255, 0.1);
+    padding: 10px;
+    border-radius: 8px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: background-color 0.2s, color 0.2s, transform 0.2s;
+    text-decoration: none;
+}
+
+.back-to-top:hover {
+    background-color: #f39c12; /* S'allume en orange au survol */
+    color: white;
+    transform: translateY(-3px);
+}
+
+/* 
+   ASTUCE PRO : Défilement doux 
+   À placer n'importe où (souvent mis tout en haut du fichier CSS avec le body) 
+*/
+html {
+    scroll-behavior: smooth;
+}
+
+/* --- ZONE COMPÉTENCES (SKILLS) --- */
+.skills-section {
+    width: 100%;
+    max-width: 1100px;
+    margin-top: 50px;
+    background-color: white;
+    padding: 30px;
+    border-radius: 10px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+    text-align: center;
+    box-sizing: border-box; /* Évite que la boîte dépasse de l'écran */
+}
+
+.skills-section h3 {
+    color: #38526d;
+    margin-top: 0;
+    margin-bottom: 30px;
+    font-size: 1.5rem;
+}
+
+/* La grille qui aligne les logos */
+.skills-grid {
+    display: flex;
+    justify-content: center;
+    gap: 30px;
+    flex-wrap: wrap; /* Passe à la ligne sur téléphone */
+}
+
+/* Les petites cartes individuelles */
+.skill-card {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+    width: 90px;
+    padding: 15px 10px;
+    border-radius: 8px;
+    background-color: #f8fafc;
+    border: 1px solid #e2e8f0;
+    transition: transform 0.2s, box-shadow 0.2s, border-color 0.2s;
+}
+
+.skill-card:hover {
+    transform: translateY(-5px); /* Fait sauter la carte au survol */
+    box-shadow: 0 6px 12px rgba(0,0,0,0.1);
+    border-color: #f39c12; /* Le bord devient orange */
+}
+
+/* Taille fixe pour tous les logos */
+.skill-card img {
+    width: 50px;
+    height: 50px;
+}
+
+/* Le texte sous le logo */
+.skill-card span {
+    font-size: 0.9rem;
+    font-weight: bold;
+    color: #475569;
+}

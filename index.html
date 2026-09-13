@@ -4,6 +4,10 @@
     <meta charset="UTF-8">
     <title>Portfolio - Quentin BLAISE</title>
     <link rel="stylesheet" href="style.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;600;700&family=Space+Grotesk:wght@500;700&display=swap" rel="stylesheet">
 </head>
 <body>
     <header>
@@ -17,17 +21,42 @@
         </nav>
     </header>
 
-    <section id="accueil" class="hero-section">
-        <div class="hero-content">
-            <h1>Bonjour, je suis <span class="highlight">Quentin Blaise</span></h1>
-            <h2>Étudiant en Ingénierie & Développeur</h2>
-            <p>Actuellement en cycle préparatoire à CY Tech, je suis passionné par la programmation (C, Web) et la création de projets interactifs.</p>
-            <div class="hero-buttons">
-                <a href="#realisations" class="btn-primary">Voir mes projets</a>
-                <a href="#contact" class="btn-secondary">Me contacter</a>
+    <section id="accueil" class="hero-split-section">
+    <!-- Le nom passe tout en haut -->
+    <div class="hero-top">
+        <h2 class="hero-name">Bonjour, je suis <span class="highlight">Quentin Blaise</span></h2>
+    </div>
+
+    <div class="hero-split-container">
+        <!-- Côté Gauche : L'Ingénieur -->
+        <div class="hero-side left-side">
+            <h1 class="split-title">ingénieur</h1>
+            <p>Étudiant en cycle préparatoire à CY Tech. Passionné par les mathématiques, l'économie et la résolution de problèmes complexes.</p>
+        </div>
+
+        <!-- Centre : L'image avec un cadre élégant -->
+        <div class="hero-center">
+            <div class="image-frame">
+                <img src="profil.png" alt="Quentin Blaise" class="split-profile-pic">
             </div>
         </div>
-    </section>
+
+        <!-- Côté Droit : Le Développeur -->
+        <div class="hero-side right-side">
+            <h1 class="split-title">&lt;codeur&gt;</h1>
+            <p>Créateur de projets interactifs et d'applications. Maîtrise du C, Python, SQL et des technologies Web.</p>
+        </div>
+    </div>
+
+    <!-- Le bas avec les boutons -->
+    <div class="hero-bottom">
+        <div class="hero-buttons">
+            <a href="#realisations" class="btn-primary">Voir mes projets</a>
+            <a href="#contact" class="btn-secondary">Me contacter</a>
+            <a href="CV_Quentin_Blaise.pdf" download="CV_Quentin_Blaise.pdf" class="btn-secondary">Télécharger mon CV</a>
+        </div>
+    </div>
+</section>
 
     <section id="apropos">
         <h2>À propos de moi</h2>
@@ -35,7 +64,7 @@
         <div class="apropos-container">
             <!-- Colonne 1 : Formation & Concours -->
             <div class="cv-section">
-                <h3>🎓 Formation</h3>
+                <h3>Formation</h3>
                 <div class="timeline">
                     <div class="timeline-item">
                         <div class="timeline-date">Sept 2025 - Juil 2027</div>
@@ -53,21 +82,39 @@
                     </div>
                 </div>
 
-                <h3 style="margin-top: 40px;">🏆 Concours d'informatique</h3>
-                <div class="timeline">
-                    <div class="timeline-item">
-                        <div class="timeline-date">Mois Année</div>
-                        <div class="timeline-content">
-                            <h4>Nom du Concours</h4>
-                            <p>Description de l'événement et résultat à compléter ici.</p>
-                        </div>
-                    </div>
-                </div>
+                <h3>Concours d'informatique</h3>
+    <div class="timeline">
+        
+        <div class="timeline-item">
+            <div class="timeline-date">2026</div>
+            <div class="timeline-content">
+                <h4>SQL Arena – CY Tech</h4>
+                <p><strong>Participation :</strong> 3ème place sur le podium. Résolution de requêtes SQL complexes et optimisation de performances de bases de données.</p>
             </div>
+        </div>
+
+        <div class="timeline-item">
+            <div class="timeline-date">2025</div>
+            <div class="timeline-content">
+                <h4>Passe ton Hack - Lycée</h4>
+                <p><strong>Participation en Groupe:</strong> Compétition de cybersécurité et de résolution de challenges techniques (CTF).</p>
+            </div>
+        </div>
+
+        <div class="timeline-item">
+            <div class="timeline-date">2024</div>
+            <div class="timeline-content">
+                <h4>Passe ton Hack - Lycée</h4>
+                <p><strong>Participation en Groupe :</strong> Immersion et résolution d'épreuves de sécurité informatique.</p>
+            </div>
+        </div>
+
+    </div>
+</div>
 
             <!-- Colonne 2 : Expériences professionnelles -->
             <div class="cv-section">
-                <h3>💼 Expériences professionnelles</h3>
+                <h3>Expériences professionnelles</h3>
                 <div class="timeline">
                     <div class="timeline-item">
                         <div class="timeline-date">Juin 2026 - Juil 2026</div>
@@ -110,7 +157,7 @@
         <!-- Nouvelle zone Compétences (à placer juste avant la fin de la section apropos) -->
     <!-- Nouvelle zone Compétences (à placer juste avant la fin de la section apropos) -->
     <div class="skills-section">
-        <h3>💻 Mes Compétences Techniques</h3>
+        <h3>Mes Compétences Techniques</h3>
         <div class="skills-grid">
             
             <div class="skill-card">
@@ -230,7 +277,7 @@
         <h2>Me Contacter</h2>
         
         <div class="contact-container">
-            <p class="contact-intro">À la recherche d'un stage ou d'une opportunité d'alternance ? N'hésitez pas à me joindre via ces différents canaux.</p>
+            <p class="contact-intro">À la recherche d'un stagiaire ou d'un alternant ? N'hésitez pas à me joindre via ces différents canaux.</p>
             
             <div class="contact-grid">
     <!-- Carte Email -->

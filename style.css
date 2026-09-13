@@ -1,44 +1,21 @@
-/* On supprime les marges par défaut et on met une police propre */
+/* =========================================
+   1. STYLES GLOBAUX
+   ========================================= */
+html {
+    scroll-behavior: smooth;
+}
+
 body {
     margin: 0;
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    background-color: #f4f4f9; /* Un petit fond gris très clair */
+    font-family: 'Plus Jakarta Sans', sans-serif;
+    background-color: #f4f4f9;
+    color: #2d3748;
 }
 
-/* La barre qui contient le menu */
-/* La barre qui contient le menu */
-header {
-    background-color: #2c3e50; 
-    padding: 20px 0;
-    /* Nouvelles lignes pour bloquer le menu en haut */
-    position: sticky;
-    top: 0;
-    z-index: 9999; /* S'assure que le menu passe au-dessus de tout le reste */
-    box-shadow: 0 2px 10px rgba(0,0,0,0.3); /* Ajoute une ombre élégante sous la barre */
-}
-
-/* On aligne les éléments du menu */
-header nav ul {
-    list-style-type: none;
-    display: flex;
-    justify-content: center; /* Centre le menu */
-    gap: 40px; /* Espace bien les liens */
-    margin: 0;
-    padding: 0;
-}
-
-/* Le design des textes cliquables */
-header nav ul li a {
-    color: white; /* Texte en blanc */
-    text-decoration: none; /* Enlève le trait en dessous */
-    font-weight: bold;
-    font-size: 18px;
-}
-
-/* Style global des sections pour qu'elles prennent bien toute la hauteur de l'écran */
+/* Style global des sections */
 section {
     min-height: 100vh;
-    padding: 80px 20px 20px 20px; /* Un peu d'espace en haut pour le menu fixe */
+    padding: 100px 20px 40px 20px; /* On augmente un peu l'espace en haut pour ne pas être collé au menu fixe */
     box-sizing: border-box;
     display: flex;
     flex-direction: column;
@@ -46,131 +23,227 @@ section {
     justify-content: center;
 }
 
-/* Style de la carte de projet */
-.projet-card {
-    background-color: white;
-    padding: 30px;
-    border-radius: 10px;
-    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
-    max-width: 1000px;
-    width: 100%;
-    text-align: center;
-    position: relative; /* <-- INDISPENSABLE ICI */
+/* Application des polices propres */
+h1, h2, h3, h4, .split-title, .hero-name {
+    font-family: 'Space Grotesk', sans-serif;
+}
+/* =========================================
+   2. HEADER & NAVIGATION
+   ========================================= */
+header {
+    background-color: #2c3e50; 
+    padding: 20px 0;
+    position: sticky;
+    top: 0;
+    z-index: 9999;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.3);
 }
 
-/* La zone qui accueillera le jeu */
-.emulator-placeholder {
-    background-color: black;
-    /* On impose les proportions exactes de ta fenêtre SDL2 */
-    width: 100%;
-    max-width: 912px;
-    aspect-ratio: 912 / 497;
-    margin: 20px auto 0 auto;
-    
-    border-radius: 8px;
+header nav ul {
+    list-style-type: none;
+    display: flex;
+    justify-content: center;
+    gap: 40px;
+    margin: 0;
+    padding: 0;
+}
+
+header nav ul li a {
+    color: white;
+    text-decoration: none;
+    font-weight: bold;
+    font-size: 18px;
+}
+
+/* =========================================
+   3. SECTION ACCUEIL (HERO SPLIT)
+   ========================================= */
+#accueil {
+    background: #ffffff;
+    padding: 60px 20px 40px 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+/* Le nom tout en haut */
+.hero-top {
+    text-align: center;
+    margin-bottom: 30px;
+}
+
+.hero-name {
+    font-size: 2.2rem;
+    color: #2c3e50;
+    margin: 0;
+    font-weight: 300;
+}
+
+.hero-name .highlight {
+    color: #f39c12;
+    font-weight: bold;
+}
+
+/* Conteneur des 3 colonnes */
+.hero-split-container {
     display: flex;
     align-items: center;
     justify-content: center;
-    position: relative;
-    overflow: hidden;
-    box-shadow: 0 8px 25px rgba(0,0,0,0.4);
-}
-
-/* L'écran virtuel du jeu généré par Emscripten */
-#canvas {
+    max-width: 1200px;
     width: 100%;
-    height: 100%;
-    display: block;
-    image-rendering: pixelated; /* Garde les textures nettes sans effet de flou */
+    gap: 30px;
+    margin-bottom: 40px;
 }
 
-/* Style du bouton Jouer */
-#btn-jouer {
-    position: absolute;
-    z-index: 10;
-    padding: 15px 30px;
-    font-size: 1.2rem;
-    font-weight: bold;
-    background-color: #f39c12; /* Orange Seigneur des Anneaux */
-    color: white;
-    border: none;
-    border-radius: 8px;
-    cursor: pointer;
-    box-shadow: 0 4px 6px rgba(0,0,0,0.3);
-    transition: transform 0.2s, background-color 0.2s;
+.hero-side {
+    flex: 1;
 }
 
-#btn-jouer:hover {
-    background-color: #e67e22;
-    transform: scale(1.05);
+.left-side {
+    text-align: right;
 }
 
-/* Le logo se place par rapport au rectangle blanc */
-.github-link {
-    position: absolute; /* <-- Remplace "fixed" par "absolute" */
-    top: 20px;
-    right: 25px;
+.right-side {
+    text-align: left;
+}
+
+.split-title {
+    font-size: 3.5rem;
     color: #2c3e50;
-    transition: transform 0.2s ease, color 0.2s ease;
+    margin-bottom: 10px;
+    margin-top: 0;
+    font-weight: 800;
+    letter-spacing: -2px;
 }
 
-.github-link:hover {
-    transform: scale(1.15);
-    color: #f39c12;
+.hero-side p {
+    font-size: 1.05rem;
+    color: #666;
+    line-height: 1.5;
+    max-width: 280px;
 }
 
-/* Style de la croix de fermeture */
-#btn-fermer {
-    position: absolute;
-    top: 15px;
-    right: 15px;
-    z-index: 20;
-    padding: 8px 15px;
-    font-size: 1rem;
+.left-side p { 
+    margin-left: auto; 
+}
+
+/* Le cadre élégant autour de l'image */
+.hero-center {
+    flex: 0 0 280px;
+    display: flex;
+    justify-content: center;
+}
+
+.image-frame {
+    background: white;
+    padding: 10px; /* Crée une bordure blanche type Polaroid */
+    border-radius: 12px;
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15); /* Belle ombre portée en relief */
+    border: 1px solid #e2e8f0;
+    width: 100%;
+}
+
+.split-profile-pic {
+    width: 100%;
+    height: auto;
+    display: block;
+    border-radius: 8px; /* Arrondit l'intérieur de l'image */
+    object-fit: cover;
+}
+
+/* Boutons en bas */
+.hero-bottom {
+    text-align: center;
+}
+
+.hero-buttons {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    flex-wrap: wrap;
+}
+
+.btn-primary, .btn-secondary {
+    padding: 12px 30px;
+    font-size: 1.1rem;
     font-weight: bold;
-    background-color: #e74c3c; /* Rouge pour le bouton quitter */
+    text-decoration: none;
+    border-radius: 8px;
+    transition: transform 0.2s, background-color 0.2s, box-shadow 0.2s;
+}
+
+.btn-primary {
+    background-color: #f39c12;
     color: white;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
-    box-shadow: 0 4px 6px rgba(0,0,0,0.3);
-    transition: transform 0.2s, background-color 0.2s;
+    box-shadow: 0 4px 10px rgba(243, 156, 18, 0.3);
 }
 
-#btn-fermer:hover {
-    background-color: #c0392b;
-    transform: scale(1.1);
+.btn-primary:hover {
+    background-color: #e67e22;
+    transform: translateY(-3px);
+    box-shadow: 0 6px 15px rgba(243, 156, 18, 0.4);
 }
 
-/* Conteneur principal qui coupe l'écran en deux colonnes */
+.btn-secondary {
+    background-color: transparent;
+    color: #2c3e50;
+    border: 2px solid #2c3e50;
+}
+
+.btn-secondary:hover {
+    background-color: #2c3e50;
+    color: white;
+    transform: translateY(-3px);
+}
+
+@media (max-width: 900px) {
+    .hero-split-container {
+        flex-direction: column;
+        gap: 20px;
+    }
+    .hero-center {
+        order: -1;
+        flex: 0 0 220px;
+    }
+    .left-side, .right-side {
+        text-align: center;
+    }
+    .left-side p { margin: 0 auto; }
+    .split-title {
+        font-size: 2.8rem;
+    }
+}
+
+/* =========================================
+   4. SECTION À PROPOS & CV
+   ========================================= */
 .apropos-container {
     display: flex;
     gap: 40px;
     max-width: 1100px;
     width: 100%;
     margin-top: 30px;
-    flex-wrap: wrap; /* Passe sur une seule colonne sur petit écran */
+    flex-wrap: wrap;
 }
 
-/* Les cartes blanches */
 .cv-section {
     flex: 1;
     background-color: white;
     padding: 30px;
     border-radius: 10px;
     box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
-    text-align: left; /* On aligne à gauche pour le confort de lecture */
+    text-align: left;
     min-width: 320px;
 }
 
 .cv-section h3 {
     color: #38526d;
-    border-bottom: 2px solid #f39c12; /* Ligne orange sous le titre */
+    border-bottom: 2px solid #f39c12;
     padding-bottom: 10px;
     margin-top: 0;
 }
 
-/* Le design de la ligne verticale (Timeline) */
 .timeline {
     border-left: 3px solid #e0e0e0;
     padding-left: 20px;
@@ -182,11 +255,10 @@ section {
     position: relative;
 }
 
-/* Le petit point orange sur la ligne */
 .timeline-item::before {
     content: "";
     position: absolute;
-    left: -28.5px; /* Aligné pile sur la bordure gauche */
+    left: -28.5px;
     top: 2px;
     width: 10px;
     height: 10px;
@@ -215,95 +287,161 @@ section {
     line-height: 1.5;
 }
 
-/* --- SECTION ACCUEIL (HERO) --- */
-#accueil {
-    /* Un léger dégradé gris/bleuté pour remplacer le fond uni */
-    background: linear-gradient(135deg, #f4f4f9 0%, #e0e6ed 100%);
+/* =========================================
+   5. COMPÉTENCES TECHNIQUES (SKILLS)
+   ========================================= */
+.skills-section {
+    width: 100%;
+    max-width: 1100px;
+    margin-top: 50px;
+    background-color: white;
+    padding: 30px;
+    border-radius: 10px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
     text-align: center;
-    padding: 0 20px;
+    box-sizing: border-box;
 }
 
-.hero-content {
-    max-width: 800px;
-}
-
-/* Le grand titre avec ton nom */
-.hero-content h1 {
-    font-size: 3.5rem;
-    color: #2c3e50; /* Le bleu nuit de ton menu */
-    margin-bottom: 10px;
+.skills-section h3 {
+    color: #38526d;
     margin-top: 0;
+    margin-bottom: 30px;
+    font-size: 1.5rem;
 }
 
-/* Le mot mis en valeur en orange */
-.hero-content .highlight {
-    color: #f39c12;
-}
-
-/* Le sous-titre */
-.hero-content h2 {
-    font-size: 2rem;
-    color: #555;
-    font-weight: 300;
-    margin-bottom: 20px;
-    margin-top: 0;
-}
-
-/* Le petit paragraphe de présentation */
-.hero-content p {
-    font-size: 1.2rem;
-    color: #666;
-    line-height: 1.6;
-    margin-bottom: 40px;
-}
-
-/* La zone qui contient les deux boutons */
-.hero-buttons {
+.skills-grid {
     display: flex;
     justify-content: center;
-    gap: 20px;
+    gap: 30px;
     flex-wrap: wrap;
 }
 
-/* Style commun aux boutons de l'accueil */
-.btn-primary, .btn-secondary {
-    padding: 12px 30px;
-    font-size: 1.1rem;
-    font-weight: bold;
-    text-decoration: none;
+.skill-card {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+    width: 90px;
+    padding: 15px 10px;
     border-radius: 8px;
-    transition: transform 0.2s, background-color 0.2s, box-shadow 0.2s;
+    background-color: #f8fafc;
+    border: 1px solid #e2e8f0;
+    transition: transform 0.2s, box-shadow 0.2s, border-color 0.2s;
 }
 
-/* Le bouton principal (Orange) */
-.btn-primary {
+.skill-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 6px 12px rgba(0,0,0,0.1);
+    border-color: #f39c12;
+}
+
+.skill-card img {
+    width: 50px;
+    height: 50px;
+}
+
+.skill-card span {
+    font-size: 0.9rem;
+    font-weight: bold;
+    color: #475569;
+}
+
+/* =========================================
+   6. SECTION RÉALISATIONS (JEU RPG)
+   ========================================= */
+.projet-card {
+    background-color: white;
+    padding: 30px;
+    border-radius: 10px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+    max-width: 1000px;
+    width: 100%;
+    text-align: center;
+    position: relative;
+}
+
+.emulator-placeholder {
+    background-color: black;
+    width: 100%;
+    max-width: 912px;
+    aspect-ratio: 912 / 497;
+    margin: 20px auto 0 auto;
+    border-radius: 8px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    overflow: hidden;
+    box-shadow: 0 8px 25px rgba(0,0,0,0.4);
+}
+
+#canvas {
+    width: 100%;
+    height: 100%;
+    display: block;
+    image-rendering: pixelated;
+}
+
+#btn-jouer {
+    position: absolute;
+    z-index: 10;
+    padding: 15px 30px;
+    font-size: 1.2rem;
+    font-weight: bold;
     background-color: #f39c12;
     color: white;
-    box-shadow: 0 4px 10px rgba(243, 156, 18, 0.3);
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    box-shadow: 0 4px 6px rgba(0,0,0,0.3);
+    transition: transform 0.2s, background-color 0.2s;
 }
 
-.btn-primary:hover {
+#btn-jouer:hover {
     background-color: #e67e22;
-    transform: translateY(-3px); /* Fait "sauter" le bouton au survol */
-    box-shadow: 0 6px 15px rgba(243, 156, 18, 0.4);
+    transform: scale(1.05);
 }
 
-/* Le bouton secondaire (Transparent avec contour bleu) */
-.btn-secondary {
-    background-color: transparent;
-    color: #2c3e50;
-    border: 2px solid #2c3e50;
-}
-
-.btn-secondary:hover {
-    background-color: #2c3e50;
+#btn-fermer {
+    position: absolute;
+    top: 15px;
+    right: 15px;
+    z-index: 20;
+    padding: 8px 15px;
+    font-size: 1rem;
+    font-weight: bold;
+    background-color: #e74c3c;
     color: white;
-    transform: translateY(-3px);
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    box-shadow: 0 4px 6px rgba(0,0,0,0.3);
+    transition: transform 0.2s, background-color 0.2s;
 }
 
-/* --- SECTION CONTACT --- */
+#btn-fermer:hover {
+    background-color: #c0392b;
+    transform: scale(1.1);
+}
+
+.github-link {
+    position: absolute;
+    top: 20px;
+    right: 25px;
+    color: #2c3e50;
+    transition: transform 0.2s ease, color 0.2s ease;
+}
+
+.github-link:hover {
+    transform: scale(1.15);
+    color: #f39c12;
+}
+
+/* =========================================
+   7. SECTION CONTACT
+   ========================================= */
 #contact {
-    background-color: #2c3e50; /* Reprend le bleu de ton menu pour bien fermer la page */
+    background-color: #2c3e50;
     color: white;
 }
 
@@ -323,7 +461,6 @@ section {
     color: #cbd5e1;
 }
 
-/* Grille pour aligner les 4 cartes */
 .contact-grid {
     display: flex;
     justify-content: center;
@@ -331,7 +468,6 @@ section {
     flex-wrap: wrap;
 }
 
-/* Le design des cartes de contact */
 .contact-card {
     background-color: rgba(255, 255, 255, 0.1);
     padding: 25px 20px;
@@ -345,7 +481,6 @@ section {
     align-items: center;
 }
 
-/* Effet de survol pour les liens */
 .contact-card:not(.static-card):hover {
     transform: translateY(-5px);
     background-color: rgba(255, 255, 255, 0.2);
@@ -359,7 +494,7 @@ section {
 .contact-card h3 {
     margin: 0 0 5px 0;
     font-size: 1.2rem;
-    color: #f39c12; /* Touche d'orange */
+    color: #f39c12;
 }
 
 .contact-card p {
@@ -368,23 +503,22 @@ section {
     color: #cbd5e1;
 }
 
-/* La carte localisation n'a pas besoin d'effet de survol */
 .static-card {
     cursor: default;
 }
 
 /* =========================================
-   7. FOOTER
+   8. FOOTER
    ========================================= */
 footer {
-    background-color: #1a252f; /* Un bleu nuit encore plus foncé que la section Contact */
+    background-color: #1a252f;
     color: #cbd5e1;
     padding: 20px 0;
 }
 
 .footer-content {
     display: flex;
-    justify-content: space-between; /* Écarte le texte à gauche et la flèche à droite */
+    justify-content: space-between;
     align-items: center;
     max-width: 1100px;
     margin: 0 auto;
@@ -396,7 +530,6 @@ footer {
     font-size: 0.9rem;
 }
 
-/* Style de la flèche de retour en haut */
 .back-to-top {
     color: #cbd5e1;
     background-color: rgba(255, 255, 255, 0.1);
@@ -410,76 +543,7 @@ footer {
 }
 
 .back-to-top:hover {
-    background-color: #f39c12; /* S'allume en orange au survol */
+    background-color: #f39c12;
     color: white;
     transform: translateY(-3px);
-}
-
-/* 
-   ASTUCE PRO : Défilement doux 
-   À placer n'importe où (souvent mis tout en haut du fichier CSS avec le body) 
-*/
-html {
-    scroll-behavior: smooth;
-}
-
-/* --- ZONE COMPÉTENCES (SKILLS) --- */
-.skills-section {
-    width: 100%;
-    max-width: 1100px;
-    margin-top: 50px;
-    background-color: white;
-    padding: 30px;
-    border-radius: 10px;
-    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
-    text-align: center;
-    box-sizing: border-box; /* Évite que la boîte dépasse de l'écran */
-}
-
-.skills-section h3 {
-    color: #38526d;
-    margin-top: 0;
-    margin-bottom: 30px;
-    font-size: 1.5rem;
-}
-
-/* La grille qui aligne les logos */
-.skills-grid {
-    display: flex;
-    justify-content: center;
-    gap: 30px;
-    flex-wrap: wrap; /* Passe à la ligne sur téléphone */
-}
-
-/* Les petites cartes individuelles */
-.skill-card {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    gap: 10px;
-    width: 90px;
-    padding: 15px 10px;
-    border-radius: 8px;
-    background-color: #f8fafc;
-    border: 1px solid #e2e8f0;
-    transition: transform 0.2s, box-shadow 0.2s, border-color 0.2s;
-}
-
-.skill-card:hover {
-    transform: translateY(-5px); /* Fait sauter la carte au survol */
-    box-shadow: 0 6px 12px rgba(0,0,0,0.1);
-    border-color: #f39c12; /* Le bord devient orange */
-}
-
-/* Taille fixe pour tous les logos */
-.skill-card img {
-    width: 50px;
-    height: 50px;
-}
-
-/* Le texte sous le logo */
-.skill-card span {
-    font-size: 0.9rem;
-    font-weight: bold;
-    color: #475569;
 }

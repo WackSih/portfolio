@@ -1,8 +1,14 @@
 /* =========================================
    1. STYLES GLOBAUX
    ========================================= */
+*, *::before, *::after {
+    box-sizing: border-box;
+}
+
 html {
     scroll-behavior: smooth;
+    width: 100%;
+    overflow-x: hidden;
 }
 
 @media (prefers-reduced-motion: reduce) {
@@ -17,6 +23,8 @@ html {
 
 body {
     margin: 0;
+    width: 100%;
+    overflow-x: hidden;
     font-family: 'Plus Jakarta Sans', sans-serif;
     background-color: #f4f4f9;
     color: #2d3748;
@@ -107,26 +115,94 @@ header nav ul li a.active {
     border-bottom-color: #f39c12;
 }
 
-/* Nav resserrée sur tablette */
-@media (max-width: 600px) {
-    header nav ul {
-        gap: 18px;
-        row-gap: 8px;
-    }
-    header nav ul li a {
-        font-size: 15px;
-        white-space: nowrap;
-    }
+/* Barre supérieure : logo texte + bouton hamburger (visible seulement en mobile) */
+.nav-bar {
+    display: none;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 20px;
 }
 
-/* Nav encore plus compacte sur petit mobile (iPhone SE et similaires) */
-@media (max-width: 400px) {
-    header nav ul {
-        gap: 10px;
-        row-gap: 6px;
+.nav-brand {
+    color: white;
+    font-family: 'Space Grotesk', sans-serif;
+    font-weight: 700;
+    font-size: 1.1rem;
+}
+
+.menu-toggle {
+    display: none;
+    flex-direction: column;
+    justify-content: center;
+    gap: 5px;
+    width: 40px;
+    height: 40px;
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 0;
+}
+
+.menu-toggle-bar {
+    display: block;
+    width: 26px;
+    height: 3px;
+    background-color: white;
+    border-radius: 2px;
+    transition: transform 0.25s ease, opacity 0.25s ease;
+}
+
+.menu-toggle.open .menu-toggle-bar:nth-child(1) {
+    transform: translateY(8px) rotate(45deg);
+}
+.menu-toggle.open .menu-toggle-bar:nth-child(2) {
+    opacity: 0;
+}
+.menu-toggle.open .menu-toggle-bar:nth-child(3) {
+    transform: translateY(-8px) rotate(-45deg);
+}
+
+/* En dessous de 700px : la nav devient un menu déroulant plein écran */
+@media (max-width: 700px) {
+    header {
+        padding: 14px 0;
     }
+
+    .nav-bar {
+        display: flex;
+    }
+
+    .menu-toggle {
+        display: flex;
+    }
+
+    header nav ul {
+        display: none;
+        flex-direction: column;
+        align-items: center;
+        gap: 0;
+        padding: 10px 0 0 0;
+    }
+
+    header nav ul.open {
+        display: flex;
+    }
+
+    header nav ul li {
+        width: 100%;
+        text-align: center;
+    }
+
     header nav ul li a {
-        font-size: 13px;
+        display: block;
+        padding: 14px 20px;
+        font-size: 17px;
+        border-bottom: 1px solid rgba(255,255,255,0.08);
+    }
+
+    header nav ul li a.active {
+        border-bottom: 1px solid rgba(255,255,255,0.08);
+        background-color: rgba(243, 156, 18, 0.1);
     }
 }
 

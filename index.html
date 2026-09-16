@@ -22,7 +22,15 @@
 
     <header>
         <nav>
-            <ul>
+            <div class="nav-bar">
+                <span class="nav-brand">Q.Blaise</span>
+                <button id="menu-toggle" class="menu-toggle" aria-expanded="false" aria-controls="nav-menu" aria-label="Ouvrir le menu">
+                    <span class="menu-toggle-bar"></span>
+                    <span class="menu-toggle-bar"></span>
+                    <span class="menu-toggle-bar"></span>
+                </button>
+            </div>
+            <ul id="nav-menu">
                 <li><a href="#accueil" class="nav-link">Accueil</a></li>
                 <li><a href="#apropos" class="nav-link">À propos</a></li>
                 <li><a href="#realisations" class="nav-link">Mes réalisations</a></li>
@@ -30,6 +38,7 @@
             </ul>
         </nav>
     </header>
+
 
     <section id="accueil" class="hero-split-section">
         <div class="hero-top">
@@ -321,6 +330,27 @@
     </footer>
 
     <script>
+        // Ouverture / fermeture du menu mobile
+        const menuToggle = document.getElementById('menu-toggle');
+        const navMenu = document.getElementById('nav-menu');
+
+        menuToggle.addEventListener('click', () => {
+            const isOpen = navMenu.classList.toggle('open');
+            menuToggle.classList.toggle('open', isOpen);
+            menuToggle.setAttribute('aria-expanded', isOpen);
+            menuToggle.setAttribute('aria-label', isOpen ? 'Fermer le menu' : 'Ouvrir le menu');
+        });
+
+        // Ferme le menu automatiquement après un clic sur un lien (mobile)
+        navMenu.querySelectorAll('a').forEach(link => {
+            link.addEventListener('click', () => {
+                navMenu.classList.remove('open');
+                menuToggle.classList.remove('open');
+                menuToggle.setAttribute('aria-expanded', 'false');
+                menuToggle.setAttribute('aria-label', 'Ouvrir le menu');
+            });
+        });
+
         // Met en surbrillance le lien de nav correspondant à la section visible
         const sections = document.querySelectorAll('section[id]');
         const navLinks = document.querySelectorAll('.nav-link');

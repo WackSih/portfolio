@@ -39,7 +39,6 @@
         </nav>
     </header>
 
-
     <section id="accueil" class="hero-split-section">
         <div class="hero-top">
             <h2 class="hero-name">Bonjour, je suis <span class="highlight">Quentin Blaise</span></h2>
@@ -206,6 +205,7 @@
 
             <h3>RPG Memory - Thème Seigneur des Anneaux</h3>
             <p>Jeu de plateau codé en C, réalisé en groupe lors de ma première année de prépa intégrée à CY Tech.</p>
+            <p style="font-size: 0.9rem; color: #f39c12;">Nécessite un clavier. Appuyez sur la touche <b>Espace</b> pour démarrer.</p>
             <div class="game-container">
                 <div class="emulator-placeholder">
                     <button id="btn-jouer" onclick="lancerJeu()">▶ Lancer le jeu</button>
@@ -236,12 +236,14 @@
                             var canvas = document.getElementById('canvas');
                             canvas.style.opacity = "1";
                             canvas.style.pointerEvents = "auto";
+                            
+                            // TRÈS IMPORTANT : Donne le focus au jeu pour que la touche Espace fonctionne tout de suite
+                            canvas.focus();
 
                             if (!jeuCharge) {
                                 var script = document.createElement('script');
                                 script.src = 'memo.js';
                                 script.onerror = function() {
-                                    // Le fichier memo.js n'a pas pu être chargé : on affiche un message clair
                                     document.getElementById('btn-fermer').style.display = 'none';
                                     document.getElementById('btn-jouer').style.display = 'block';
                                     document.getElementById('jeu-erreur').style.display = 'block';
@@ -251,9 +253,8 @@
                                 };
                                 document.body.appendChild(script);
                                 jeuCharge = true;
-                            } else {
-                                Module.resumeMainLoop();
                             }
+                            // Les méthodes obsolètes resumeMainLoop et pauseMainLoop ont été retirées ici pour éviter l'erreur.
                         }
 
                         function fermerJeu() {
@@ -263,10 +264,6 @@
                             var canvas = document.getElementById('canvas');
                             canvas.style.opacity = "0";
                             canvas.style.pointerEvents = "none";
-
-                            if (jeuCharge) {
-                                Module.pauseMainLoop();
-                            }
                         }
                     </script>
                 </div>
@@ -314,7 +311,7 @@
                 </div>
             </div>
 
-            <a href="CV_Quentin_Blaise.pdf" download="CV_Quentin_Blaise.pdf" class="btn-secondary footer-cv-link">Télécharger mon CV</a>
+            <a href="CV_Quentin_Blaise.pdf" download="CV_Quentin_Blaise.pdf" class="btn-secondary footer-cv-link" style="margin-top: 30px; display: inline-block;">Télécharger mon CV</a>
         </div>
     </section>
 

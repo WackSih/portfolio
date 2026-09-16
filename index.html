@@ -2,67 +2,72 @@
 <html lang="fr">
 <head>
     <meta charset="UTF-8">
-    <title>Portfolio - Quentin BLAISE</title>
-    <link rel="stylesheet" href="style.css">
+    <title>Portfolio - Quentin Blaise | Étudiant Ingénieur CY Tech</title>
+    <meta name="description" content="Portfolio de Quentin Blaise, étudiant en cycle préparatoire intégré à CY Tech (Mathématiques, Informatique, Économie-Finance). Découvrez mes projets en C, Python et SQL, et mon CV.">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- Open Graph : aperçu correct quand le lien est partagé -->
+    <meta property="og:title" content="Quentin Blaise - Portfolio">
+    <meta property="og:description" content="Étudiant en cycle préparatoire intégré à CY Tech. Découvrez mes projets et mon parcours.">
+    <meta property="og:image" content="profil.png">
+    <meta property="og:type" content="website">
+
+    <link rel="stylesheet" href="style.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;600;700&family=Space+Grotesk:wght@500;700&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;600;700&family=Space+Grotesk:wght@500;700&display=swap" rel="stylesheet">
 </head>
 <body>
+    <a href="#accueil" class="skip-link">Aller au contenu principal</a>
+
     <header>
         <nav>
             <ul>
-                <li><a href="#accueil">Accueil</a></li>
-                <li><a href="#apropos">À propos</a></li>
-                <li><a href="#realisations">Mes réalisations</a></li>
-                <li><a href="#contact">Contact</a></li>
+                <li><a href="#accueil" class="nav-link">Accueil</a></li>
+                <li><a href="#apropos" class="nav-link">À propos</a></li>
+                <li><a href="#realisations" class="nav-link">Mes réalisations</a></li>
+                <li><a href="#contact" class="nav-link">Contact</a></li>
             </ul>
         </nav>
     </header>
 
     <section id="accueil" class="hero-split-section">
-    <!-- Le nom passe tout en haut -->
-    <div class="hero-top">
-        <h2 class="hero-name">Bonjour, je suis <span class="highlight">Quentin Blaise</span></h2>
-    </div>
-
-    <div class="hero-split-container">
-        <!-- Côté Gauche : L'Ingénieur -->
-        <div class="hero-side left-side">
-            <h1 class="split-title">ingénieur</h1>
-            <p>Étudiant en cycle préparatoire à CY Tech. Passionné par les mathématiques, l'économie et la résolution de problèmes complexes.</p>
+        <div class="hero-top">
+            <h2 class="hero-name">Bonjour, je suis <span class="highlight">Quentin Blaise</span></h2>
+            <p class="hero-pitch">Curieux de nature, j'aime comprendre comment les choses fonctionnent — que ce soit un système économique ou une ligne de code. C'est ce qui m'a mené vers CY Tech.</p>
         </div>
 
-        <!-- Centre : L'image avec un cadre élégant -->
-        <div class="hero-center">
-            <div class="image-frame">
-                <img src="profil.png" alt="Quentin Blaise" class="split-profile-pic">
+        <div class="hero-split-container">
+            <div class="hero-side left-side">
+                <h1 class="split-title">Ingénieur</h1>
+                <p>Étudiant en cycle préparatoire à CY Tech. Passionné par les mathématiques, l'économie et la résolution de problèmes complexes.</p>
+            </div>
+
+            <div class="hero-center">
+                <div class="image-frame">
+                    <img src="profil.png" alt="Photo de portrait de Quentin Blaise" class="split-profile-pic">
+                </div>
+            </div>
+
+            <div class="hero-side right-side">
+                <h1 class="split-title">Codeur</h1>
+                <p>Créateur de projets interactifs et d'applications. Maîtrise du C, Python, SQL et des technologies Web.</p>
             </div>
         </div>
 
-        <!-- Côté Droit : Le Développeur -->
-        <div class="hero-side right-side">
-            <h1 class="split-title">&lt;codeur&gt;</h1>
-            <p>Créateur de projets interactifs et d'applications. Maîtrise du C, Python, SQL et des technologies Web.</p>
+        <div class="hero-bottom">
+            <div class="hero-buttons">
+                <a href="#realisations" class="btn-primary">Voir mes projets</a>
+                <a href="#contact" class="btn-secondary">Me contacter</a>
+                <a href="CV_Quentin_Blaise.pdf" download="CV_Quentin_Blaise.pdf" class="btn-secondary">Télécharger mon CV</a>
+            </div>
         </div>
-    </div>
-
-    <!-- Le bas avec les boutons -->
-    <div class="hero-bottom">
-        <div class="hero-buttons">
-            <a href="#realisations" class="btn-primary">Voir mes projets</a>
-            <a href="#contact" class="btn-secondary">Me contacter</a>
-            <a href="CV_Quentin_Blaise.pdf" download="CV_Quentin_Blaise.pdf" class="btn-secondary">Télécharger mon CV</a>
-        </div>
-    </div>
-</section>
+    </section>
 
     <section id="apropos">
         <h2>À propos de moi</h2>
-        
+
         <div class="apropos-container">
-            <!-- Colonne 1 : Formation & Concours -->
             <div class="cv-section">
                 <h3>Formation</h3>
                 <div class="timeline">
@@ -83,36 +88,31 @@
                 </div>
 
                 <h3>Concours d'informatique</h3>
-    <div class="timeline">
-        
-        <div class="timeline-item">
-            <div class="timeline-date">2026</div>
-            <div class="timeline-content">
-                <h4>SQL Arena – CY Tech</h4>
-                <p><strong>Participation :</strong> 3ème place sur le podium. Résolution de requêtes SQL complexes et optimisation de performances de bases de données.</p>
+                <div class="timeline">
+                    <div class="timeline-item">
+                        <div class="timeline-date">2026</div>
+                        <div class="timeline-content">
+                            <h4>SQL Arena – CY Tech</h4>
+                            <p><strong>Participation :</strong> 3ème place sur le podium. Résolution de requêtes SQL complexes et optimisation de performances de bases de données.</p>
+                        </div>
+                    </div>
+                    <div class="timeline-item">
+                        <div class="timeline-date">2025</div>
+                        <div class="timeline-content">
+                            <h4>Passe ton Hack - Lycée</h4>
+                            <p><strong>Participation en groupe :</strong> Compétition de cybersécurité et de résolution de challenges techniques (CTF).</p>
+                        </div>
+                    </div>
+                    <div class="timeline-item">
+                        <div class="timeline-date">2024</div>
+                        <div class="timeline-content">
+                            <h4>Passe ton Hack - Lycée</h4>
+                            <p><strong>Participation en groupe :</strong> Immersion et résolution d'épreuves de sécurité informatique.</p>
+                        </div>
+                    </div>
+                </div>
             </div>
-        </div>
 
-        <div class="timeline-item">
-            <div class="timeline-date">2025</div>
-            <div class="timeline-content">
-                <h4>Passe ton Hack - Lycée</h4>
-                <p><strong>Participation en Groupe:</strong> Compétition de cybersécurité et de résolution de challenges techniques (CTF).</p>
-            </div>
-        </div>
-
-        <div class="timeline-item">
-            <div class="timeline-date">2024</div>
-            <div class="timeline-content">
-                <h4>Passe ton Hack - Lycée</h4>
-                <p><strong>Participation en Groupe :</strong> Immersion et résolution d'épreuves de sécurité informatique.</p>
-            </div>
-        </div>
-
-    </div>
-</div>
-
-            <!-- Colonne 2 : Expériences professionnelles -->
             <div class="cv-section">
                 <h3>Expériences professionnelles</h3>
                 <div class="timeline">
@@ -154,50 +154,42 @@
                 </div>
             </div>
         </div>
-        <!-- Nouvelle zone Compétences (à placer juste avant la fin de la section apropos) -->
-    <!-- Nouvelle zone Compétences (à placer juste avant la fin de la section apropos) -->
-    <div class="skills-section">
-        <h3>Mes Compétences Techniques</h3>
-        <div class="skills-grid">
-            
-            <div class="skill-card">
-                <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/c/c-original.svg" alt="Logo C">
-                <span>C</span>
-            </div>
 
-            <div class="skill-card">
-                <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/python/python-original.svg" alt="Logo Python">
-                <span>Python</span>
+        <div class="skills-section">
+            <h3>Mes compétences techniques</h3>
+            <div class="skills-grid">
+                <div class="skill-card">
+                    <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/c/c-original.svg" alt="Logo C">
+                    <span>C</span>
+                </div>
+                <div class="skill-card">
+                    <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/python/python-original.svg" alt="Logo Python">
+                    <span>Python</span>
+                </div>
+                <div class="skill-card">
+                    <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/mysql/mysql-original.svg" alt="Logo SQL">
+                    <span>SQL</span>
+                </div>
+                <div class="skill-card">
+                    <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/html5/html5-original.svg" alt="Logo HTML5">
+                    <span>HTML5</span>
+                </div>
+                <div class="skill-card">
+                    <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/css3/css3-original.svg" alt="Logo CSS3">
+                    <span>CSS3</span>
+                </div>
+                <div class="skill-card">
+                    <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/github/github-original.svg" alt="Logo GitHub" class="invert-dark">
+                    <span>GitHub</span>
+                </div>
             </div>
-
-            <div class="skill-card">
-                <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/mysql/mysql-original.svg" alt="Logo SQL">
-                <span>SQL</span>
-            </div>
-
-            <div class="skill-card">
-                <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/html5/html5-original.svg" alt="Logo HTML5">
-                <span>HTML5</span>
-            </div>
-
-            <div class="skill-card">
-                <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/css3/css3-original.svg" alt="Logo CSS3">
-                <span>CSS3</span>
-            </div>
-
-            <div class="skill-card">
-                <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/github/github-original.svg" alt="Logo GitHub" class="invert-dark">
-                <span>GitHub</span>
-            </div>
-
         </div>
-    </div>
     </section>
 
     <section id="realisations">
         <h2>Mes réalisations</h2>
         <div class="projet-card">
-            <a href="https://github.com/WackSih/Projet-MEF2-B-Memo-RPG" target="_blank" class="github-link" title="Voir le code source sur GitHub">
+            <a href="https://github.com/WackSih/Projet-MEF2-B-Memo-RPG" target="_blank" rel="noopener" class="github-link" title="Voir le code source sur GitHub" aria-label="Voir le code source sur GitHub">
                 <svg viewBox="0 0 16 16" width="35" height="35" aria-hidden="true">
                     <path fill="currentColor" d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.013 8.013 0 0016 8c0-4.42-3.58-8-8-8z"></path>
                 </svg>
@@ -207,29 +199,22 @@
             <p>Jeu de plateau codé en C, réalisé en groupe lors de ma première année de prépa intégrée à CY Tech.</p>
             <div class="game-container">
                 <div class="emulator-placeholder">
-                    
-                    <!-- Bouton pour démarrer -->
                     <button id="btn-jouer" onclick="lancerJeu()">▶ Lancer le jeu</button>
-
-                    <!-- Bouton pour mettre en pause (Caché par défaut) -->
                     <button id="btn-fermer" onclick="fermerJeu()" style="display: none;">✖ Quitter</button>
-
-                    <!-- L'écran virtuel de ton jeu -->
+                    <p id="jeu-erreur" class="jeu-erreur" role="alert" style="display: none;">
+                        Le jeu n'a pas pu se charger. Vérifiez votre connexion ou réessayez dans quelques instants.
+                    </p>
                     <canvas id="canvas" oncontextmenu="event.preventDefault()"></canvas>
-                    
-                    <!-- Configuration et Script de lancement -->
+
                     <script>
-                        var jeuCharge = false; 
-                        
+                        var jeuCharge = false;
+
                         var Module = {
                             canvas: (function() {
                                 var canvas = document.getElementById('canvas');
                                 canvas.addEventListener("contextmenu", function(e) { e.preventDefault(); }, false);
-                                
-                                // On cache le canvas au démarrage pour qu'il soit invisible
                                 canvas.style.opacity = "0";
                                 canvas.style.pointerEvents = "none";
-                                
                                 return canvas;
                             })()
                         };
@@ -237,15 +222,24 @@
                         function lancerJeu() {
                             document.getElementById('btn-jouer').style.display = 'none';
                             document.getElementById('btn-fermer').style.display = 'block';
-                            
-                            // On rend le jeu visible et on réactive les clics
+                            document.getElementById('jeu-erreur').style.display = 'none';
+
                             var canvas = document.getElementById('canvas');
                             canvas.style.opacity = "1";
                             canvas.style.pointerEvents = "auto";
-                            
+
                             if (!jeuCharge) {
                                 var script = document.createElement('script');
                                 script.src = 'memo.js';
+                                script.onerror = function() {
+                                    // Le fichier memo.js n'a pas pu être chargé : on affiche un message clair
+                                    document.getElementById('btn-fermer').style.display = 'none';
+                                    document.getElementById('btn-jouer').style.display = 'block';
+                                    document.getElementById('jeu-erreur').style.display = 'block';
+                                    canvas.style.opacity = "0";
+                                    canvas.style.pointerEvents = "none";
+                                    jeuCharge = false;
+                                };
                                 document.body.appendChild(script);
                                 jeuCharge = true;
                             } else {
@@ -256,13 +250,11 @@
                         function fermerJeu() {
                             document.getElementById('btn-fermer').style.display = 'none';
                             document.getElementById('btn-jouer').style.display = 'block';
-                            
-                            // On rend le jeu invisible et on bloque totalement la souris
+
                             var canvas = document.getElementById('canvas');
                             canvas.style.opacity = "0";
                             canvas.style.pointerEvents = "none";
-                            
-                            // On tente de mettre la boucle en pause pour économiser le processeur
+
                             if (jeuCharge) {
                                 Module.pauseMainLoop();
                             }
@@ -275,63 +267,76 @@
 
     <section id="contact">
         <h2>Me Contacter</h2>
-        
+
         <div class="contact-container">
             <p class="contact-intro">À la recherche d'un stagiaire ou d'un alternant ? N'hésitez pas à me joindre via ces différents canaux.</p>
-            
+
             <div class="contact-grid">
-    <!-- Carte Email -->
-    <a href="mailto:quentin.blaise99@gmail.com" class="contact-card">
-        <svg class="contact-icon" viewBox="0 0 24 24" width="40" height="40" fill="currentColor" aria-hidden="true">
-            <path d="M20 4H4c-1.1 0-1.99.9-1.99 2L2 18c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"/>
-        </svg>
-        <h3>Email</h3>
-        <p>M'envoyer un message</p>
-    </a>
+                <a href="mailto:quentin.blaise99@gmail.com" class="contact-card">
+                    <svg class="contact-icon" viewBox="0 0 24 24" width="40" height="40" fill="currentColor" aria-hidden="true">
+                        <path d="M20 4H4c-1.1 0-1.99.9-1.99 2L2 18c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"/>
+                    </svg>
+                    <h3>Email</h3>
+                    <p>M'envoyer un message</p>
+                </a>
 
-    <!-- Carte LinkedIn -->
-    <a href="https://www.linkedin.com/in/quentin-blaise-356a02397/" target="_blank" class="contact-card">
-        <svg class="contact-icon" viewBox="0 0 24 24" width="40" height="40" fill="currentColor" aria-hidden="true">
-            <path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"/>
-        </svg>
-        <h3>LinkedIn</h3>
-        <p>Mon réseau professionnel</p>
-    </a>
+                <a href="https://www.linkedin.com/in/quentin-blaise-356a02397/" target="_blank" rel="noopener" class="contact-card">
+                    <svg class="contact-icon" viewBox="0 0 24 24" width="40" height="40" fill="currentColor" aria-hidden="true">
+                        <path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"/>
+                    </svg>
+                    <h3>LinkedIn</h3>
+                    <p>Mon réseau professionnel</p>
+                </a>
 
-    <!-- Carte GitHub -->
-    <a href="https://github.com/WackSih" target="_blank" class="contact-card">
-        <svg class="contact-icon" viewBox="0 0 16 16" width="40" height="40" fill="currentColor" aria-hidden="true">
-            <path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.013 8.013 0 0016 8c0-4.42-3.58-8-8-8z"/>
-        </svg>
-        <h3>GitHub</h3>
-        <p>Explorer mes dépôts</p>
-    </a>
+                <a href="https://github.com/WackSih" target="_blank" rel="noopener" class="contact-card">
+                    <svg class="contact-icon" viewBox="0 0 16 16" width="40" height="40" fill="currentColor" aria-hidden="true">
+                        <path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.013 8.013 0 0016 8c0-4.42-3.58-8-8-8z"/>
+                    </svg>
+                    <h3>GitHub</h3>
+                    <p>Explorer mes dépôts</p>
+                </a>
 
-    <!-- Carte Localisation (Non cliquable) -->
-    <div class="contact-card static-card">
-        <svg class="contact-icon" viewBox="0 0 24 24" width="40" height="40" fill="currentColor" aria-hidden="true">
-            <path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/>
-        </svg>
-        <h3>Localisation</h3>
-        <p>Cergy-Pontoise / Chambly</p>
-    </div>
-</div>
+                <div class="contact-card static-card">
+                    <svg class="contact-icon" viewBox="0 0 24 24" width="40" height="40" fill="currentColor" aria-hidden="true">
+                        <path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/>
+                    </svg>
+                    <h3>Localisation</h3>
+                    <p>Cergy-Pontoise / Chambly</p>
+                </div>
+            </div>
+
+            <a href="CV_Quentin_Blaise.pdf" download="CV_Quentin_Blaise.pdf" class="btn-secondary footer-cv-link">Télécharger mon CV</a>
         </div>
     </section>
-    <!-- =========================================
-         7. FOOTER (PIED DE PAGE)
-         ========================================= -->
+
     <footer>
         <div class="footer-content">
             <p>&copy; 2026 Quentin Blaise. Tous droits réservés.</p>
-            
-            <!-- Flèche de retour en haut -->
-            <a href="#accueil" class="back-to-top" title="Retour en haut">
+            <a href="#accueil" class="back-to-top" title="Retour en haut" aria-label="Retour en haut">
                 <svg viewBox="0 0 24 24" width="24" height="24" fill="currentColor" aria-hidden="true">
                     <path d="M7.41 15.41L12 10.83l4.59 4.58L18 14l-6-6-6 6z"/>
                 </svg>
             </a>
         </div>
     </footer>
+
+    <script>
+        // Met en surbrillance le lien de nav correspondant à la section visible
+        const sections = document.querySelectorAll('section[id]');
+        const navLinks = document.querySelectorAll('.nav-link');
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    const id = entry.target.getAttribute('id');
+                    navLinks.forEach(link => {
+                        link.classList.toggle('active', link.getAttribute('href') === '#' + id);
+                    });
+                }
+            });
+        }, { rootMargin: '-40% 0px -55% 0px' });
+
+        sections.forEach(section => observer.observe(section));
+    </script>
 </body>
 </html>

@@ -215,57 +215,51 @@
                     </p>
                     <canvas id="canvas" oncontextmenu="event.preventDefault()"></canvas>
 
-                    <script>
-                        var jeuCharge = false;
-
-                        var Module = {
-                            canvas: (function() {
-                                var canvas = document.getElementById('canvas');
-                                canvas.addEventListener("contextmenu", function(e) { e.preventDefault(); }, false);
-                                canvas.style.opacity = "0";
-                                canvas.style.pointerEvents = "none";
-                                return canvas;
-                            })()
-                        };
-
-                        function lancerJeu() {
-                            document.getElementById('btn-jouer').style.display = 'none';
-                            document.getElementById('btn-fermer').style.display = 'block';
-                            document.getElementById('jeu-erreur').style.display = 'none';
-
+                    <!-- Configuration et Script de lancement -->
+                <script>
+                    var jeuCharge = false; 
+                    
+                    var Module = {
+                        canvas: (function() {
                             var canvas = document.getElementById('canvas');
-                            canvas.style.opacity = "1";
-                            canvas.style.pointerEvents = "auto";
+                            canvas.addEventListener("contextmenu", function(e) { e.preventDefault(); }, false);
                             
-                            // TRÈS IMPORTANT : Donne le focus au jeu pour que la touche Espace fonctionne tout de suite
-                            canvas.focus();
-
-                            if (!jeuCharge) {
-                                var script = document.createElement('script');
-                                script.src = 'memo.js';
-                                script.onerror = function() {
-                                    document.getElementById('btn-fermer').style.display = 'none';
-                                    document.getElementById('btn-jouer').style.display = 'block';
-                                    document.getElementById('jeu-erreur').style.display = 'block';
-                                    canvas.style.opacity = "0";
-                                    canvas.style.pointerEvents = "none";
-                                    jeuCharge = false;
-                                };
-                                document.body.appendChild(script);
-                                jeuCharge = true;
-                            }
-                            // Les méthodes obsolètes resumeMainLoop et pauseMainLoop ont été retirées ici pour éviter l'erreur.
-                        }
-
-                        function fermerJeu() {
-                            document.getElementById('btn-fermer').style.display = 'none';
-                            document.getElementById('btn-jouer').style.display = 'block';
-
-                            var canvas = document.getElementById('canvas');
+                            // On cache le canvas au démarrage pour qu'il soit invisible
                             canvas.style.opacity = "0";
                             canvas.style.pointerEvents = "none";
+                            
+                            return canvas;
+                        })()
+                    };
+
+                    function lancerJeu() {
+                        document.getElementById('btn-jouer').style.display = 'none';
+                        document.getElementById('btn-fermer').style.display = 'block';
+                        
+                        // On rend le jeu visible et on réactive les clics
+                        var canvas = document.getElementById('canvas');
+                        canvas.style.opacity = "1";
+                        canvas.style.pointerEvents = "auto";
+                        canvas.focus(); // Permet de jouer avec le clavier immédiatement
+                        
+                        if (!jeuCharge) {
+                            var script = document.createElement('script');
+                            script.src = 'memo.js';
+                            document.body.appendChild(script);
+                            jeuCharge = true;
                         }
-                    </script>
+                    }
+
+                    function fermerJeu() {
+                        document.getElementById('btn-fermer').style.display = 'none';
+                        document.getElementById('btn-jouer').style.display = 'block';
+                        
+                        // On rend le jeu invisible et on bloque totalement la souris
+                        var canvas = document.getElementById('canvas');
+                        canvas.style.opacity = "0";
+                        canvas.style.pointerEvents = "none";
+                    }
+                </script>
                 </div>
             </div>
         </div>

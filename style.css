@@ -68,20 +68,27 @@ button:focus-visible {
    ========================================= */
 header {
     background-color: #2c3e50;
-    padding: 20px 0;
+    padding: 16px 0;
     position: sticky;
     top: 0;
     z-index: 9999;
     box-shadow: 0 2px 10px rgba(0,0,0,0.3);
+    width: 100%;
+    box-sizing: border-box;
+    overflow-x: hidden;
 }
 
 header nav ul {
     list-style-type: none;
     display: flex;
     justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
     gap: 40px;
     margin: 0;
-    padding: 0;
+    padding: 0 15px;
+    box-sizing: border-box;
+    width: 100%;
 }
 
 header nav ul li a {
@@ -98,6 +105,34 @@ header nav ul li a:hover,
 header nav ul li a.active {
     color: #f39c12;
     border-bottom-color: #f39c12;
+}
+
+/* Nav resserrée sur tablette */
+@media (max-width: 600px) {
+    header nav ul {
+        gap: 18px;
+        row-gap: 8px;
+    }
+    header nav ul li a {
+        font-size: 15px;
+        white-space: nowrap;
+    }
+}
+
+/* Nav encore plus compacte sur petit mobile (iPhone SE et similaires) */
+@media (max-width: 400px) {
+    header nav ul {
+        gap: 10px;
+        row-gap: 6px;
+    }
+    header nav ul li a {
+        font-size: 13px;
+    }
+}
+
+/* Empêche tout débordement horizontal accidentel sur la page entière */
+body {
+    overflow-x: hidden;
 }
 
 /* =========================================

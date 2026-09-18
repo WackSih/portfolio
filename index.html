@@ -16,14 +16,38 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;600;700&family=Space+Grotesk:wght@500;700&display=swap" rel="stylesheet">
+    
+    <style>
+        /* Style du bouton de traduction (tu pourras déplacer ceci dans style.css plus tard si tu le souhaites) */
+        .lang-btn {
+            background: rgba(255, 255, 255, 0.1);
+            color: white;
+            border: 1px solid rgba(255, 255, 255, 0.3);
+            border-radius: 5px;
+            padding: 6px 12px;
+            cursor: pointer;
+            font-size: 0.95rem;
+            font-weight: bold;
+            margin-right: 15px;
+            transition: background 0.3s, transform 0.2s;
+            font-family: inherit;
+        }
+        .lang-btn:hover {
+            background: rgba(255, 255, 255, 0.2);
+            transform: scale(1.05);
+        }
+    </style>
 </head>
 <body>
-    <a href="#accueil" class="skip-link">Aller au contenu principal</a>
+    <a href="#accueil" class="skip-link" data-i18n="skip_link">Aller au contenu principal</a>
 
     <header>
         <nav>
             <div class="nav-bar">
                 <span class="nav-brand">Q.Blaise</span>
+                
+                <button id="lang-toggle" class="lang-btn" aria-label="Changer de langue">🇬🇧 EN</button>
+
                 <button id="menu-toggle" class="menu-toggle" aria-expanded="false" aria-controls="nav-menu" aria-label="Ouvrir le menu">
                     <span class="menu-toggle-bar"></span>
                     <span class="menu-toggle-bar"></span>
@@ -31,24 +55,24 @@
                 </button>
             </div>
             <ul id="nav-menu">
-                <li><a href="#accueil" class="nav-link">Accueil</a></li>
-                <li><a href="#apropos" class="nav-link">À propos</a></li>
-                <li><a href="#realisations" class="nav-link">Mes réalisations</a></li>
-                <li><a href="#contact" class="nav-link">Contact</a></li>
+                <li><a href="#accueil" class="nav-link" data-i18n="nav_home">Accueil</a></li>
+                <li><a href="#apropos" class="nav-link" data-i18n="nav_about">À propos</a></li>
+                <li><a href="#realisations" class="nav-link" data-i18n="nav_projects">Mes réalisations</a></li>
+                <li><a href="#contact" class="nav-link" data-i18n="nav_contact">Contact</a></li>
             </ul>
         </nav>
     </header>
 
     <section id="accueil" class="hero-split-section">
         <div class="hero-top">
-            <h2 class="hero-name">Bonjour, je suis <span class="highlight">Quentin Blaise</span></h2>
-            <p class="hero-pitch">Curieux de nature, j'aime comprendre comment les choses fonctionnent — que ce soit un système économique ou une ligne de code. C'est ce qui m'a mené vers CY Tech.</p>
+            <h2 class="hero-name" data-i18n="hero_hello">Bonjour, je suis <span class="highlight">Quentin Blaise</span></h2>
+            <p class="hero-pitch" data-i18n="hero_pitch">Curieux de nature, j'aime comprendre comment les choses fonctionnent — que ce soit un système économique ou une ligne de code. C'est ce qui m'a mené vers CY Tech.</p>
         </div>
 
         <div class="hero-split-container">
             <div class="hero-side left-side">
-                <h1 class="split-title"><span class="bracket">&lt;</span>Ingénieur<span class="bracket">&gt;</span></h1>
-                <p>Étudiant en cycle préparatoire à CY Tech. Passionné par les mathématiques, l'économie et la résolution de problèmes complexes.</p>
+                <h1 class="split-title"><span class="bracket">&lt;</span><span data-i18n="hero_eng_title">Ingénieur</span><span class="bracket">&gt;</span></h1>
+                <p data-i18n="hero_eng_desc">Étudiant en cycle préparatoire à CY Tech. Passionné par les mathématiques, l'économie et la résolution de problèmes complexes.</p>
             </div>
 
             <div class="hero-center">
@@ -58,105 +82,105 @@
             </div>
 
             <div class="hero-side right-side">
-                <h1 class="split-title"><span class="bracket">&lt;</span>Codeur<span class="bracket">&gt;</span></h1>
-                <p>Créateur de projets interactifs et d'applications. Maîtrise du C, Python, SQL et des technologies Web.</p>
+                <h1 class="split-title"><span class="bracket">&lt;</span><span data-i18n="hero_coder_title">Codeur</span><span class="bracket">&gt;</span></h1>
+                <p data-i18n="hero_coder_desc">Créateur de projets interactifs et d'applications. Maîtrise du C, Python, SQL et des technologies Web.</p>
             </div>
         </div>
 
         <div class="hero-bottom">
             <div class="hero-buttons">
-                <a href="#realisations" class="btn-primary">Voir mes projets</a>
-                <a href="#contact" class="btn-secondary">Me contacter</a>
-                <a href="CV_Quentin_Blaise.pdf" download="CV_Quentin_Blaise.pdf" class="btn-secondary">Télécharger mon CV</a>
+                <a href="#realisations" class="btn-primary" data-i18n="btn_projects">Voir mes projets</a>
+                <a href="#contact" class="btn-secondary" data-i18n="btn_contact">Me contacter</a>
+                <a href="CV_Quentin_Blaise.pdf" download="CV_Quentin_Blaise.pdf" class="btn-secondary" data-i18n="btn_cv">Télécharger mon CV</a>
             </div>
         </div>
     </section>
 
     <section id="apropos">
-        <h2>À propos de moi</h2>
+        <h2 data-i18n="about_title">À propos de moi</h2>
 
         <div class="apropos-container">
             <div class="cv-section">
-                <h3>Formation</h3>
+                <h3 data-i18n="cv_edu">Formation</h3>
                 <div class="timeline">
                     <div class="timeline-item">
-                        <div class="timeline-date">Sept 2025 - Juil 2027</div>
+                        <div class="timeline-date" data-i18n="date_cytech">Sept 2025 - Juil 2027</div>
                         <div class="timeline-content">
                             <h4>CY Tech</h4>
-                            <p>Classe préparatoire intégrée, Mathématiques et Informatique (Option Économie-Finance).</p>
+                            <p data-i18n="desc_cytech">Classe préparatoire intégrée, Mathématiques et Informatique (Option Économie-Finance).</p>
                         </div>
                     </div>
                     <div class="timeline-item">
-                        <div class="timeline-date">Sept 2022 - Juil 2025</div>
+                        <div class="timeline-date" data-i18n="date_bac">Sept 2022 - Juil 2025</div>
                         <div class="timeline-content">
-                            <h4>Lycée Fragonard</h4>
-                            <p>Baccalauréat général (Spécialités : Mathématiques, Numérique et Sciences Informatiques). Mention Bien.</p>
+                            <h4 data-i18n="title_bac">Lycée Fragonard</h4>
+                            <p data-i18n="desc_bac">Baccalauréat général (Spécialités : Mathématiques, Numérique et Sciences Informatiques). Mention Bien.</p>
                         </div>
                     </div>
                 </div>
 
-                <h3>Concours d'informatique</h3>
+                <h3 data-i18n="cv_comp">Concours d'informatique</h3>
                 <div class="timeline">
                     <div class="timeline-item">
                         <div class="timeline-date">2026</div>
                         <div class="timeline-content">
                             <h4>SQL Arena – CY Tech</h4>
-                            <p><strong>Participation :</strong> 3ème place sur le podium. Résolution de requêtes SQL complexes et optimisation de performances de bases de données.</p>
+                            <p data-i18n="desc_sql"><strong>Participation :</strong> 3ème place sur le podium. Résolution de requêtes SQL complexes et optimisation de performances de bases de données.</p>
                         </div>
                     </div>
                     <div class="timeline-item">
                         <div class="timeline-date">2025</div>
                         <div class="timeline-content">
-                            <h4>Passe ton Hack - Lycée</h4>
-                            <p><strong>Participation en groupe :</strong> Compétition de cybersécurité et de résolution de challenges techniques (CTF).</p>
+                            <h4 data-i18n="title_hack25">Passe ton Hack - Lycée</h4>
+                            <p data-i18n="desc_hack25"><strong>Participation en groupe :</strong> Compétition de cybersécurité et de résolution de challenges techniques (CTF).</p>
                         </div>
                     </div>
                     <div class="timeline-item">
                         <div class="timeline-date">2024</div>
                         <div class="timeline-content">
-                            <h4>Passe ton Hack - Lycée</h4>
-                            <p><strong>Participation en groupe :</strong> Immersion et résolution d'épreuves de sécurité informatique.</p>
+                            <h4 data-i18n="title_hack24">Passe ton Hack - Lycée</h4>
+                            <p data-i18n="desc_hack24"><strong>Participation en groupe :</strong> Immersion et résolution d'épreuves de sécurité informatique.</p>
                         </div>
                     </div>
                 </div>
             </div>
 
             <div class="cv-section">
-                <h3>Expériences professionnelles</h3>
+                <h3 data-i18n="cv_exp">Expériences professionnelles</h3>
                 <div class="timeline">
                     <div class="timeline-item">
-                        <div class="timeline-date">Juin 2026 - Juil 2026</div>
+                        <div class="timeline-date" data-i18n="date_md">Juin 2026 - Juil 2026</div>
                         <div class="timeline-content">
-                            <h4>MD Logistic - Préparateur de commande</h4>
-                            <p>CDD (2 mois) à Amblainville, Hauts-de-France.</p>
+                            <h4 data-i18n="title_md">MD Logistic - Préparateur de commande</h4>
+                            <p data-i18n="desc_md">CDD (2 mois) à Amblainville, Hauts-de-France.</p>
                         </div>
                     </div>
                     <div class="timeline-item">
-                        <div class="timeline-date">Juil 2025 - Août 2025</div>
+                        <div class="timeline-date" data-i18n="date_ama25">Juil 2025 - Août 2025</div>
                         <div class="timeline-content">
-                            <h4>Restaurant L'Amarena - Chef de rang</h4>
-                            <p>CDD (2 mois) à La Tremblade, Nouvelle-Aquitaine.</p>
+                            <h4 data-i18n="title_ama25">Restaurant L'Amarena - Chef de rang</h4>
+                            <p data-i18n="desc_ama25">CDD (2 mois) à La Tremblade, Nouvelle-Aquitaine.</p>
                         </div>
                     </div>
                     <div class="timeline-item">
-                        <div class="timeline-date">Juil 2024 - Août 2024</div>
+                        <div class="timeline-date" data-i18n="date_ama24">Juil 2024 - Août 2024</div>
                         <div class="timeline-content">
-                            <h4>Restaurant L'Amarena - Employé polyvalent</h4>
-                            <p>CDD (2 mois) à La Tremblade, Nouvelle-Aquitaine.</p>
+                            <h4 data-i18n="title_ama24">Restaurant L'Amarena - Employé polyvalent</h4>
+                            <p data-i18n="desc_ama24">CDD (2 mois) à La Tremblade, Nouvelle-Aquitaine.</p>
                         </div>
                     </div>
                     <div class="timeline-item">
-                        <div class="timeline-date">Janv 2023</div>
+                        <div class="timeline-date" data-i18n="date_kury">Janv 2023</div>
                         <div class="timeline-content">
-                            <h4>Laboratoire KuryosityLab - Stagiaire</h4>
-                            <p>Stage d'observation (1 mois) à Beauvais, Hauts-de-France.</p>
+                            <h4 data-i18n="title_kury">Laboratoire KuryosityLab - Stagiaire</h4>
+                            <p data-i18n="desc_kury">Stage d'observation (1 mois) à Beauvais, Hauts-de-France.</p>
                         </div>
                     </div>
                     <div class="timeline-item">
-                        <div class="timeline-date">Févr 2022</div>
+                        <div class="timeline-date" data-i18n="date_free">Févr 2022</div>
                         <div class="timeline-content">
-                            <h4>Free - Stagiaire</h4>
-                            <p>Stage d'observation (1 mois) à Paris, Île-de-France.</p>
+                            <h4 data-i18n="title_free">Free - Stagiaire</h4>
+                            <p data-i18n="desc_free">Stage d'observation (1 mois) à Paris, Île-de-France.</p>
                         </div>
                     </div>
                 </div>
@@ -164,7 +188,7 @@
         </div>
 
         <div class="skills-section">
-            <h3>Mes compétences techniques</h3>
+            <h3 data-i18n="skills_title">Mes compétences techniques</h3>
             <div class="skills-grid">
                 <div class="skill-card">
                     <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/c/c-original.svg" alt="Logo C">
@@ -195,7 +219,7 @@
     </section>
 
     <section id="realisations">
-        <h2>Mes réalisations</h2>
+        <h2 data-i18n="proj_title">Mes réalisations</h2>
         <div class="projet-card">
             <a href="https://github.com/WackSih/Projet-MEF2-B-Memo-RPG" target="_blank" rel="noopener" class="github-link" title="Voir le code source sur GitHub" aria-label="Voir le code source sur GitHub">
                 <svg viewBox="0 0 16 16" width="35" height="35" aria-hidden="true">
@@ -203,73 +227,70 @@
                 </svg>
             </a>
 
-            <h3>RPG Memory - Thème Seigneur des Anneaux</h3>
-            <p>Jeu de plateau codé en C, réalisé en groupe lors de ma première année de prépa intégrée à CY Tech.</p>
-            <p style="font-size: 0.9rem; color: #f39c12;">Nécessite un clavier. Appuyez sur la touche <b>Espace</b> pour démarrer.</p>
+            <h3 data-i18n="rpg_title">RPG Memory - Thème Seigneur des Anneaux</h3>
+            <p data-i18n="rpg_desc">Jeu de plateau codé en C, réalisé en groupe lors de ma première année de prépa intégrée à CY Tech.</p>
+            <p style="font-size: 0.9rem; color: #f39c12;" data-i18n="rpg_hint">Nécessite un clavier. Appuyez sur la touche <b>Espace</b> pour démarrer.</p>
             <div class="game-container">
                 <div class="emulator-placeholder">
-                    <button id="btn-jouer" onclick="lancerJeu()">▶ Lancer le jeu</button>
-                    <button id="btn-fermer" onclick="fermerJeu()" style="display: none;">✖ Quitter</button>
-                    <p id="jeu-erreur" class="jeu-erreur" role="alert" style="display: none;">
+                    <button id="btn-jouer" onclick="lancerJeu()" data-i18n="btn_play">▶ Lancer le jeu</button>
+                    <button id="btn-fermer" onclick="fermerJeu()" style="display: none;" data-i18n="btn_quit">✖ Quitter</button>
+                    <p id="jeu-erreur" class="jeu-erreur" role="alert" style="display: none;" data-i18n="game_error">
                         Le jeu n'a pas pu se charger. Vérifiez votre connexion ou réessayez dans quelques instants.
                     </p>
                     <canvas id="canvas" oncontextmenu="event.preventDefault()"></canvas>
 
                     <!-- Configuration et Script de lancement -->
-                <script>
-                    var jeuCharge = false; 
-                    
-                    var Module = {
-                        canvas: (function() {
-                            var canvas = document.getElementById('canvas');
-                            canvas.addEventListener("contextmenu", function(e) { e.preventDefault(); }, false);
+                    <script>
+                        var jeuCharge = false; 
+                        
+                        var Module = {
+                            canvas: (function() {
+                                var canvas = document.getElementById('canvas');
+                                canvas.addEventListener("contextmenu", function(e) { e.preventDefault(); }, false);
+                                
+                                canvas.style.opacity = "0";
+                                canvas.style.pointerEvents = "none";
+                                
+                                return canvas;
+                            })()
+                        };
+
+                        function lancerJeu() {
+                            document.getElementById('btn-jouer').style.display = 'none';
+                            document.getElementById('btn-fermer').style.display = 'block';
                             
-                            // On cache le canvas au démarrage pour qu'il soit invisible
+                            var canvas = document.getElementById('canvas');
+                            canvas.style.opacity = "1";
+                            canvas.style.pointerEvents = "auto";
+                            canvas.focus();
+                            
+                            if (!jeuCharge) {
+                                var script = document.createElement('script');
+                                script.src = 'memo.js';
+                                document.body.appendChild(script);
+                                jeuCharge = true;
+                            }
+                        }
+
+                        function fermerJeu() {
+                            document.getElementById('btn-fermer').style.display = 'none';
+                            document.getElementById('btn-jouer').style.display = 'block';
+                            
+                            var canvas = document.getElementById('canvas');
                             canvas.style.opacity = "0";
                             canvas.style.pointerEvents = "none";
-                            
-                            return canvas;
-                        })()
-                    };
-
-                    function lancerJeu() {
-                        document.getElementById('btn-jouer').style.display = 'none';
-                        document.getElementById('btn-fermer').style.display = 'block';
-                        
-                        // On rend le jeu visible et on réactive les clics
-                        var canvas = document.getElementById('canvas');
-                        canvas.style.opacity = "1";
-                        canvas.style.pointerEvents = "auto";
-                        canvas.focus(); // Permet de jouer avec le clavier immédiatement
-                        
-                        if (!jeuCharge) {
-                            var script = document.createElement('script');
-                            script.src = 'memo.js';
-                            document.body.appendChild(script);
-                            jeuCharge = true;
                         }
-                    }
-
-                    function fermerJeu() {
-                        document.getElementById('btn-fermer').style.display = 'none';
-                        document.getElementById('btn-jouer').style.display = 'block';
-                        
-                        // On rend le jeu invisible et on bloque totalement la souris
-                        var canvas = document.getElementById('canvas');
-                        canvas.style.opacity = "0";
-                        canvas.style.pointerEvents = "none";
-                    }
-                </script>
+                    </script>
                 </div>
             </div>
         </div>
     </section>
 
     <section id="contact">
-        <h2>Me Contacter</h2>
+        <h2 data-i18n="contact_title">Me Contacter</h2>
 
         <div class="contact-container">
-            <p class="contact-intro">À la recherche d'un stagiaire ou d'un alternant ? N'hésitez pas à me joindre via ces différents canaux.</p>
+            <p class="contact-intro" data-i18n="contact_intro">À la recherche d'un stagiaire ou d'un alternant ? N'hésitez pas à me joindre via ces différents canaux.</p>
 
             <div class="contact-grid">
                 <a href="mailto:quentin.blaise99@gmail.com" class="contact-card">
@@ -277,7 +298,7 @@
                         <path d="M20 4H4c-1.1 0-1.99.9-1.99 2L2 18c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"/>
                     </svg>
                     <h3>Email</h3>
-                    <p>M'envoyer un message</p>
+                    <p data-i18n="contact_email">M'envoyer un message</p>
                 </a>
 
                 <a href="https://www.linkedin.com/in/quentin-blaise-356a02397/" target="_blank" rel="noopener" class="contact-card">
@@ -285,7 +306,7 @@
                         <path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"/>
                     </svg>
                     <h3>LinkedIn</h3>
-                    <p>Mon réseau professionnel</p>
+                    <p data-i18n="contact_linkedin">Mon réseau professionnel</p>
                 </a>
 
                 <a href="https://github.com/WackSih" target="_blank" rel="noopener" class="contact-card">
@@ -293,25 +314,25 @@
                         <path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.013 8.013 0 0016 8c0-4.42-3.58-8-8-8z"/>
                     </svg>
                     <h3>GitHub</h3>
-                    <p>Explorer mes dépôts</p>
+                    <p data-i18n="contact_github">Explorer mes dépôts</p>
                 </a>
 
                 <div class="contact-card static-card">
                     <svg class="contact-icon" viewBox="0 0 24 24" width="40" height="40" fill="currentColor" aria-hidden="true">
                         <path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/>
                     </svg>
-                    <h3>Localisation</h3>
+                    <h3 data-i18n="contact_location">Localisation</h3>
                     <p>Cergy-Pontoise / Chambly</p>
                 </div>
             </div>
 
-            <a href="CV_Quentin_Blaise.pdf" download="CV_Quentin_Blaise.pdf" class="btn-secondary footer-cv-link" style="margin-top: 30px; display: inline-block;">Télécharger mon CV</a>
+            <a href="CV_Quentin_Blaise.pdf" download="CV_Quentin_Blaise.pdf" class="btn-secondary footer-cv-link" style="margin-top: 30px; display: inline-block;" data-i18n="btn_cv_footer">Télécharger mon CV</a>
         </div>
     </section>
 
     <footer>
         <div class="footer-content">
-            <p>&copy; 2026 Quentin Blaise. Tous droits réservés.</p>
+            <p data-i18n="footer_rights">&copy; 2026 Quentin Blaise. Tous droits réservés.</p>
             <a href="#accueil" class="back-to-top" title="Retour en haut" aria-label="Retour en haut">
                 <svg viewBox="0 0 24 24" width="24" height="24" fill="currentColor" aria-hidden="true">
                     <path d="M7.41 15.41L12 10.83l4.59 4.58L18 14l-6-6-6 6z"/>
@@ -320,8 +341,11 @@
         </div>
     </footer>
 
+    <!-- Script principal de la page (UI + Traduction) -->
     <script>
-        // Ouverture / fermeture du menu mobile
+        /* -------------------------------------
+           MENU MOBILE ET SCROLL SPY
+           ------------------------------------- */
         const menuToggle = document.getElementById('menu-toggle');
         const navMenu = document.getElementById('nav-menu');
 
@@ -332,7 +356,6 @@
             menuToggle.setAttribute('aria-label', isOpen ? 'Fermer le menu' : 'Ouvrir le menu');
         });
 
-        // Ferme le menu automatiquement après un clic sur un lien (mobile)
         navMenu.querySelectorAll('a').forEach(link => {
             link.addEventListener('click', () => {
                 navMenu.classList.remove('open');
@@ -342,7 +365,6 @@
             });
         });
 
-        // Met en surbrillance le lien de nav correspondant à la section visible
         const sections = document.querySelectorAll('section[id]');
         const navLinks = document.querySelectorAll('.nav-link');
 
@@ -358,6 +380,149 @@
         }, { rootMargin: '-40% 0px -55% 0px' });
 
         sections.forEach(section => observer.observe(section));
+
+        /* -------------------------------------
+           SYSTÈME DE TRADUCTION BILINGUE
+           ------------------------------------- */
+        const translations = {
+            fr: {
+                skip_link: "Aller au contenu principal",
+                nav_home: "Accueil",
+                nav_about: "À propos",
+                nav_projects: "Mes réalisations",
+                nav_contact: "Contact",
+                hero_hello: 'Bonjour, je suis <span class="highlight">Quentin Blaise</span>',
+                hero_pitch: "Curieux de nature, j'aime comprendre comment les choses fonctionnent — que ce soit un système économique ou une ligne de code. C'est ce qui m'a mené vers CY Tech.",
+                hero_eng_title: "Ingénieur",
+                hero_eng_desc: "Étudiant en cycle préparatoire à CY Tech. Passionné par les mathématiques, l'économie et la résolution de problèmes complexes.",
+                hero_coder_title: "Codeur",
+                hero_coder_desc: "Créateur de projets interactifs et d'applications. Maîtrise du C, Python, SQL et des technologies Web.",
+                btn_projects: "Voir mes projets",
+                btn_contact: "Me contacter",
+                btn_cv: "Télécharger mon CV",
+                about_title: "À propos de moi",
+                cv_edu: "Formation",
+                date_cytech: "Sept 2025 - Juil 2027",
+                desc_cytech: "Classe préparatoire intégrée, Mathématiques et Informatique (Option Économie-Finance).",
+                date_bac: "Sept 2022 - Juil 2025",
+                title_bac: "Lycée Fragonard",
+                desc_bac: "Baccalauréat général (Spécialités : Mathématiques, Numérique et Sciences Informatiques). Mention Bien.",
+                cv_comp: "Concours d'informatique",
+                desc_sql: "<strong>Participation :</strong> 3ème place sur le podium. Résolution de requêtes SQL complexes et optimisation de performances de bases de données.",
+                title_hack25: "Passe ton Hack - Lycée",
+                desc_hack25: "<strong>Participation en groupe :</strong> Compétition de cybersécurité et de résolution de challenges techniques (CTF).",
+                title_hack24: "Passe ton Hack - Lycée",
+                desc_hack24: "<strong>Participation en groupe :</strong> Immersion et résolution d'épreuves de sécurité informatique.",
+                cv_exp: "Expériences professionnelles",
+                date_md: "Juin 2026 - Juil 2026",
+                title_md: "MD Logistic - Préparateur de commande",
+                desc_md: "CDD (2 mois) à Amblainville, Hauts-de-France.",
+                date_ama25: "Juil 2025 - Août 2025",
+                title_ama25: "Restaurant L'Amarena - Chef de rang",
+                desc_ama25: "CDD (2 mois) à La Tremblade, Nouvelle-Aquitaine.",
+                date_ama24: "Juil 2024 - Août 2024",
+                title_ama24: "Restaurant L'Amarena - Employé polyvalent",
+                desc_ama24: "CDD (2 mois) à La Tremblade, Nouvelle-Aquitaine.",
+                date_kury: "Janv 2023",
+                title_kury: "Laboratoire KuryosityLab - Stagiaire",
+                desc_kury: "Stage d'observation (1 mois) à Beauvais, Hauts-de-France.",
+                date_free: "Févr 2022",
+                title_free: "Free - Stagiaire",
+                desc_free: "Stage d'observation (1 mois) à Paris, Île-de-France.",
+                skills_title: "Mes compétences techniques",
+                proj_title: "Mes réalisations",
+                rpg_title: "RPG Memory - Thème Seigneur des Anneaux",
+                rpg_desc: "Jeu de plateau codé en C, réalisé en groupe lors de ma première année de prépa intégrée à CY Tech.",
+                rpg_hint: "Nécessite un clavier. Appuyez sur la touche <b>Espace</b> pour démarrer.",
+                btn_play: "▶ Lancer le jeu",
+                btn_quit: "✖ Quitter",
+                game_error: "Le jeu n'a pas pu se charger. Vérifiez votre connexion ou réessayez dans quelques instants.",
+                contact_title: "Me Contacter",
+                contact_intro: "À la recherche d'un stagiaire ou d'un alternant ? N'hésitez pas à me joindre via ces différents canaux.",
+                contact_email: "M'envoyer un message",
+                contact_linkedin: "Mon réseau professionnel",
+                contact_github: "Explorer mes dépôts",
+                contact_location: "Localisation",
+                btn_cv_footer: "Télécharger mon CV",
+                footer_rights: "&copy; 2026 Quentin Blaise. Tous droits réservés."
+            },
+            en: {
+                skip_link: "Skip to main content",
+                nav_home: "Home",
+                nav_about: "About",
+                nav_projects: "Projects",
+                nav_contact: "Contact",
+                hero_hello: 'Hello, I am <span class="highlight">Quentin Blaise</span>',
+                hero_pitch: "Naturally curious, I love understanding how things work — whether it's an economic system or a line of code. This is what led me to CY Tech.",
+                hero_eng_title: "Engineer",
+                hero_eng_desc: "Student in the integrated preparatory program at CY Tech. Passionate about mathematics, economics, and solving complex problems.",
+                hero_coder_title: "Coder",
+                hero_coder_desc: "Creator of interactive projects and applications. Proficient in C, Python, SQL, and Web technologies.",
+                btn_projects: "See my projects",
+                btn_contact: "Contact me",
+                btn_cv: "Download my Resume",
+                about_title: "About me",
+                cv_edu: "Education",
+                date_cytech: "Sep 2025 - Jul 2027",
+                desc_cytech: "Integrated preparatory class, Mathematics and Computer Science (Economics-Finance option).",
+                date_bac: "Sep 2022 - Jul 2025",
+                title_bac: "Fragonard High School",
+                desc_bac: "General High School Diploma (Majors: Mathematics, Computer Science). Graduated with honors.",
+                cv_comp: "IT Competitions",
+                desc_sql: "<strong>Participation:</strong> 3rd place on the podium. Solved complex SQL queries and optimized database performance.",
+                title_hack25: "Hack your High School",
+                desc_hack25: "<strong>Group participation:</strong> Cybersecurity competition and technical challenges (CTF).",
+                title_hack24: "Hack your High School",
+                desc_hack24: "<strong>Group participation:</strong> Immersion and resolution of IT security challenges.",
+                cv_exp: "Professional Experience",
+                date_md: "Jun 2026 - Jul 2026",
+                title_md: "MD Logistic - Order Picker",
+                desc_md: "Fixed-term contract (2 months) in Amblainville, France.",
+                date_ama25: "Jul 2025 - Aug 2025",
+                title_ama25: "L'Amarena Restaurant - Head Waiter",
+                desc_ama25: "Fixed-term contract (2 months) in La Tremblade, France.",
+                date_ama24: "Jul 2024 - Aug 2024",
+                title_ama24: "L'Amarena Restaurant - Versatile Employee",
+                desc_ama24: "Fixed-term contract (2 months) in La Tremblade, France.",
+                date_kury: "Jan 2023",
+                title_kury: "KuryosityLab Laboratory - Intern",
+                desc_kury: "Observation internship (1 month) in Beauvais, France.",
+                date_free: "Feb 2022",
+                title_free: "Free - Intern",
+                desc_free: "Observation internship (1 month) in Paris, France.",
+                skills_title: "Technical Skills",
+                proj_title: "My Projects",
+                rpg_title: "RPG Memory - Lord of the Rings Theme",
+                rpg_desc: "Board game coded in C, made in a group during my first year of integrated prep at CY Tech.",
+                rpg_hint: "Requires a keyboard. Press the <b>Space</b> bar to start.",
+                btn_play: "▶ Play Game",
+                btn_quit: "✖ Quit",
+                game_error: "The game could not load. Please check your connection or try again later.",
+                contact_title: "Contact Me",
+                contact_intro: "Looking for an intern or a work-study student? Feel free to reach out via these channels.",
+                contact_email: "Send me a message",
+                contact_linkedin: "My professional network",
+                contact_github: "Explore my repositories",
+                contact_location: "Location",
+                btn_cv_footer: "Download my Resume",
+                footer_rights: "&copy; 2026 Quentin Blaise. All rights reserved."
+            }
+        };
+
+        let currentLang = "fr";
+        const langBtn = document.getElementById("lang-toggle");
+
+        langBtn.addEventListener("click", () => {
+            currentLang = currentLang === "fr" ? "en" : "fr";
+            langBtn.innerHTML = currentLang === "fr" ? "🇬🇧 EN" : "🇫🇷 FR";
+
+            document.querySelectorAll("[data-i18n]").forEach(element => {
+                const key = element.getAttribute("data-i18n");
+                if (translations[currentLang][key]) {
+                    element.innerHTML = translations[currentLang][key];
+                }
+            });
+        });
     </script>
 </body>
 </html>
